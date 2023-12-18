@@ -86,7 +86,7 @@ const Auth = ({loginFor})=>{
                         value={email}
                         ></input>
                     <button 
-                        className="w-[15%] mt-2 rounded-md font-bold text-sm bg-[#fad636da] border-[1px] text-zinc-950 mr-auto hover:bg-black hover:text-[#fad636da]" 
+                        className="w-[15%] mt-2 active:bg-[#000] active:text-[#fad636da] rounded-md font-bold text-sm bg-[#fad636da] border-[1px] text-zinc-950 mr-auto hover:bg-black hover:text-[#fad636da]" 
                         onClick={()=>sendOtp(email)}
                         >Send OTP</button>
                 </div>
