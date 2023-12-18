@@ -17,7 +17,7 @@ const VeiwProduct = () => {
         :
         setIsAdded(false);
         async function fetchData() {
-            const response = await fetch(`http://localhost:4000/api/v1/product/product/${id}`);
+            const response = await fetch(`https://farmerspalm.onrender.com/api/v1/product/product/${id}`);
             const json = await response.json();
             if(json.success){
                 setProduct(json.productDetails);
