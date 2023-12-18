@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body {
+  background: #040017;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000;
+  width: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #907601;
+  margin: 1px;
+  border-radius: 5px;
+  transition: all ease 1s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #fad636da;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+}
+
+
+::selection {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
