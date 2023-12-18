@@ -8,11 +8,11 @@ const MyOrders = () => {
   useEffect(()=>{
     const fetchData = async (userId)=>{
             try{
-              const response = await fetch(`http://localhost:4000/api/v1/order/myorders/${userId}`);
+              const response = await fetch(`https://farmerspalm.onrender.com/api/v1/order/myorders/${userId}`);
               const myOrders = await response.json();
               myOrders.productIds.map(async id=>{
                 if(id){
-                  const response = await fetch(`http://localhost:4000/api/v1/product/product/${id}`);
+                  const response = await fetch(`https://farmerspalm.onrender.com/api/v1/product/product/${id}`);
                   const data = response.json();
                   setProducts(data.productDetails);
                 }
