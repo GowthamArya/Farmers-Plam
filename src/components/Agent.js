@@ -14,9 +14,9 @@ const Agent = () => {
     const uploadImage = async () => {
         const data = new FormData();
         data.append("file",imageFile);
-        data.append("upload_preset","farmerspalm");
-        data.append("cloud_name","gowthamarya");
-        const res = await fetch("https://api.cloudinary.com/v1_1/gowthamarya/auto/upload",{
+        data.append("upload_preset",process.env.REACT_APP_UPLOADPRESENT);
+        data.append("cloud_name",process.env.REACT_APP_CLOUDNAME);
+        const res = await fetch(process.env.REACT_APP_CLOUDINARY,{
             method: "POST",
             body: data,
             mode:"cors"
