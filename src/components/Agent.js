@@ -14,9 +14,9 @@ const Agent = () => {
     const uploadImage = async () => {
         const data = new FormData();
         data.append("file",imageFile);
-        data.append("upload_preset","farmerspalm");
-        data.append("cloud_name","gowthamarya");
-        const res = await fetch("https://api.cloudinary.com/v1_1/gowthamarya/auto/upload",{
+        data.append("upload_preset",process.env.REACT_APP_UPLOADPRESENT);
+        data.append("cloud_name",process.env.REACT_APP_CLOUDNAME);
+        const res = await fetch(process.env.REACT_APP_CLOUDINARY,{
             method: "POST",
             body: data,
             mode:"cors"
@@ -39,7 +39,7 @@ const Agent = () => {
     const [pincode, setpincode] = useState('');
     const createProduct = async () => {
         try{
-            const response = await fetch('http://localhost:4000/api/v1/product/create',{
+            const response = await fetch('https://farmerspalm.onrender.com/api/v1/product/create',{
                 method: 'POST',
                 headers:{ 'Content-Type': 'application/json' },
                 body: JSON.stringify(productData),
