@@ -19,7 +19,7 @@ const CartSummary = () => {
         const fetchProduct = async ()=>{
           try {
             const promises=Object.keys(cart).map(async id=>{
-                const response = await fetch(`http://localhost:4000/api/v1/product/product/${id}`);
+                const response = await fetch(`https://farmerspalm.onrender.com/api/v1/product/product/${id}`);
                 const data = await response.json();
                 setFinalValues({
                             Quantity:finalValues.Quantity++,
@@ -52,7 +52,7 @@ const CartSummary = () => {
       },[]);
     async function orderSubmit(){
         try {
-            const response = await fetch("http://localhost:4000/api/v1/address/create",{
+            const response = await fetch("https://farmerspalm.onrender.com/api/v1/address/create",{
                 method:"post",
                 headers:{ 'Content-Type': 'application/json' },
                 body:JSON.stringify({...address}),
@@ -60,7 +60,7 @@ const CartSummary = () => {
             const data = await response.json();
             if(data.success){
                 try{
-                    const response = await fetch("http://localhost:4000/api/v1/order/create",{
+                    const response = await fetch("https://farmerspalm.onrender.com/api/v1/order/create",{
                     method:"post",
                     headers:{ 'Content-Type': 'application/json' },
                     body:JSON.stringify({productIds:Object.keys(cart),userId:address.user,addressId:(data.address._id),pincode:address.pincode})});
