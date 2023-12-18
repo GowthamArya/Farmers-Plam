@@ -17,7 +17,7 @@ const Auth = ({loginFor})=>{
     const [submitAfter,setSubmitAfter] = useState({message:"",submitClicked:false});
     const [ConfirmPassword, setConfirmPassword] = useState("");
     async function login (methodFor){
-        fetch(`http://localhost:4000/api/v1/${loginFor}/${methodFor}`,{
+        fetch(`https://farmerspalm.onrender.com/api/v1/${loginFor}/${methodFor}`,{
             method:'POST',
             headers: { 'Content-Type': 'application/json' },
             body:JSON.stringify({
