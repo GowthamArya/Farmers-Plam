@@ -17,7 +17,7 @@ const VeiwProduct = () => {
         :
         setIsAdded(false);
         async function fetchData() {
-            const response = await fetch(`http://localhost:4000/api/v1/product/product/${id}`);
+            const response = await fetch(`https://farmerspalm.onrender.com/api/v1/product/product/${id}`);
             const json = await response.json();
             if(json.success){
                 setProduct(json.productDetails);
@@ -56,15 +56,15 @@ const VeiwProduct = () => {
         </div>
         :
         <div className='w-full p-10 flex flex-col md:flex-row bg-slate-900'>
-                <div className='object-center object-cover w-full md:w-1/2 overflow-hidden h-[40vh] rounded-xl  md:h-[60vh] lg:pl-40 bg-slate-700 flex justify-center'>
+                <div className='object-center object-cover w-full md:w-1/2 overflow-hidden h-[40vh] rounded-xl  md:h-[60vh] lg:pl-40 bg-slate-700 flex justify-center animate-pulse'>
                     <h1 className='m-auto font-bold text-2xl text-yellow-200 ml-10'>Loading...</h1>
                 </div>
 
             <div className='w-full px-5 pb-4 md:w-1/2 border-b-[1px] md:border-none border-[#695d28da] h-[40vh] md:h-[60vh] text-[#fad636da] my-auto flex flex-col'>
-                <div className='w-full h-1/2 m-2 rounded-xl bg-slate-800 justify-center flex'>
+                <div className='w-full h-1/2 m-2 rounded-xl bg-slate-800 justify-center flex animate-pulse'>
                 <h1 className='font-bold text-2xl text-yellow-200 m-auto'>Loading...</h1></div>
-                <div className='w-full h-1/4 m-2 rounded-xl bg-slate-800'></div>
-                <div className='w-full h-1/6 m-2 rounded-xl bg-slate-800'></div>
+                <div className='w-full h-1/4 m-2 rounded-xl bg-slate-800 animate-pulse'></div>
+                <div className='w-full h-1/6 m-2 animate-pulse rounded-xl bg-slate-800'></div>
             </div>
         </div>
         }

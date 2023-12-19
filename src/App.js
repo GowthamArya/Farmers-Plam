@@ -60,7 +60,7 @@ const App = () => {
     });
 },[data,Cookies.get('userInfo')])
 return (
-        <div className="h-full bg-[#080b1f] select-none">
+        <div className="h-full bg-[#0a0e28] select-none">
           <RouterProvider router={Router} />
         </div>
   )

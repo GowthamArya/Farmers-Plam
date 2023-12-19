@@ -39,7 +39,7 @@ const Agent = () => {
     const [pincode, setpincode] = useState('');
     const createProduct = async () => {
         try{
-            const response = await fetch('http://localhost:4000/api/v1/product/create',{
+            const response = await fetch('https://farmerspalm.onrender.com/api/v1/product/create',{
                 method: 'POST',
                 headers:{ 'Content-Type': 'application/json' },
                 body: JSON.stringify(productData),
@@ -139,7 +139,7 @@ const Agent = () => {
         <div className='w-[80%] flex mx-auto'>
             <button 
             onClick={()=> sendOtp(productData.email)}
-            className="w-[50%] m-2 ml-auto py-2 px-2 rounded-md font-bold text-xl bg-zinc-950 border-[1px] border-[#fad636da] text-[#fad636da] hover:bg-black  active:text-black active:scale-[.98] active:bg-[#fad636da] transition-all duration-400 ease-linear" >Send OTP</button>
+            className="w-[50%] active:bg-[#000] active:text-[#fad636da] m-2 ml-auto py-2 px-2 rounded-md font-bold text-xl bg-zinc-950 border-[1px] border-[#fad636da] text-[#fad636da] hover:bg-black  active:text-black active:scale-[.98] active:bg-[#fad636da] transition-all duration-400 ease-linear" >Send OTP</button>
 
             <input 
             onChange={(e)=> setProductData({...productData,otp:e.target.value})}

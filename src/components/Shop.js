@@ -7,7 +7,7 @@ const Shop = () => {
     const [products,setProducts] = useState([]);
     useEffect(()=>{
         async function fetchdata(){
-        const response = await fetch("http://localhost:4000/api/v1/product/products");
+        const response = await fetch("https://farmerspalm.onrender.com/api/v1/product/products");
         const data = await response.json()
         setProducts(data.list);
     }

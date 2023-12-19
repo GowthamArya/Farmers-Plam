@@ -11,7 +11,7 @@ const Cart = () => {
       try {
         const data = Object.keys(cart).map(async id=>{
           if(cart[id] !== 0){
-            const response = await fetch(`http://localhost:4000/api/v1/product/product/${id}`);
+            const response = await fetch(`https://farmerspalm.onrender.com/api/v1/product/product/${id}`);
             const productData = await response.json();
             return {[id]:productData.productDetails};
           }
