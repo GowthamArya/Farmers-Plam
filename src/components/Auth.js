@@ -5,6 +5,8 @@ import Cookies from "js-cookie";
 import Home from "./Home";
 import { useDispatch } from 'react-redux';
 import { setLoginTrueWith } from '../store/reducxStore';
+import logo from "../images/logo.png";
+
 
 const Auth = ({loginFor})=>{
     const dispatch = useDispatch();
@@ -64,7 +66,7 @@ const Auth = ({loginFor})=>{
     {!userData.loggedIn ? 
         <div className="h-[100vh] w-full flex justify-center align-middle">
             <div className="w-[75%] min-h-[75%] my-auto md:w-[40%] rounded-md border-[1px] flex flex-col justify-center border-[#fad636da]">
-                <img className="w-1/4 mx-auto h-auto" src="https://res.cloudinary.com/dd6chx3xb/image/upload/v1702129467/a6ryc6gvv7mgq21idwno.png" alt="Logo" />
+                <img className="w-1/4 mx-auto h-auto" src={logo} alt="Logo" />
                 <h1 className="mx-auto p-4 font-bold text-2xl text-[#fad636da]">Farmer's Plam</h1>
                 <div className="w-full h-[60%] flex flex-col justify-evenly ">
                     <div className="bg-zinc-950 rounded-2xl mx-auto font-semibold text-lg p-2 text-[#8d7716] flex justify-around gap-1">

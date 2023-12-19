@@ -32,7 +32,7 @@ const Cart = () => {
             <h1 className='text-2xl text-[#fad636da] mx-auto py-8 font-extrabold'>Your Shopping Bag</h1>
             {Object.keys(productList)
             .map((eachProduct,i)=>
-            <CartProduct key={i} {...productList[eachProduct]}/>
+            <CartProduct className="transition-all duration-500" key={i} {...productList[eachProduct]}/>
             )}
         </div>
         {isCartEmpty ? 

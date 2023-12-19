@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { CgMenuRight } from 'react-icons/cg';
 import { RiWifiOffLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
@@ -7,8 +7,24 @@ import logo from "../images/logo.png";
 import Cookies from 'js-cookie';
 
 const Header = () => {
+  const menuRef = useRef(null);
   const userData=({...JSON.parse(Cookies.get("userInfo"))});
   const [isMenuOpen, setisMenuOpen] = useState(false);
+  const closeMenuOut = (e) => {
+    if (menuRef.current && !menuRef.current.contains(e.target)){
+      setisMenuOpen(false);
+    }
+  }
+  useEffect(()=>{
+    document.addEventListener("mousedown",closeMenuOut);
+    document.addEventListener("touchstart",closeMenuOut);
+    return ()=>{
+      document.removeEventListener("mousedown",closeMenuOut);
+      document.removeEventListener("touchstart",closeMenuOut);
+    }
+  },[]);
+
+
   return (<>
         <div className="sticky top-0 z-50 backdrop-blur-lg w-full h-[10vh] text-[#fad636da] border-[#2d270fc0] bg-[#0000009c] border-b-2 flex justify-between">
                 <Link to="/" className="flex">
@@ -31,8 +47,16 @@ const Header = () => {
         {isMenuOpen && 
         <div 
           className='fixed right-0 backdrop-blur-xl font-bold text-[3w] bg-[#debb20c0] cursor-pointer md:w-[20vw] w-[100vw] min-h-[10vh] pt-5 flex flex-col justify-center gap-7 z-50'
-          onClick={()=>setisMenuOpen(!isMenuOpen)}
-          onMouseLeave={()=>setisMenuOpen(false)}
+          ref={menuRef}
+          onClick={()=>{
+          setisMenuOpen(!isMenuOpen)
+          }}
+          onMouseLeave={()=>
+          setisMenuOpen(false)
+          }
+          onMouseDown={(e)=>{
+            console.log(menuRef.current.contains(e.target))
+          }}
         >
         {
         !userData.accountTypeOnAuth 
