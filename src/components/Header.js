@@ -74,10 +74,13 @@ const Header = () => {
               </h1><hr />
             </Link>)
         }
+        
         <div className='flex w-full justify-center gap-2 pb-2 underline'>
+        <a href='https://docs.google.com/forms/d/e/1FAIpQLSe2kcQdNUjyPJU62oSWhxZod_xmrJ5vZJ19iKQvpozTueK9lg/viewform?usp=sf_link' target='blank'>
         <button>Dealer</button>
-        <button>Sell</button>
+        <button className='mx-1'>Sell</button>
         <button>Enquiry</button>
+        </a>
         </div>
         </div>}
         

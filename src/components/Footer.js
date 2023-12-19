@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logo from "../images/logo.png";
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
     <Link 
     to="/"
     className='flex flex-col md:flex-row'>
-      <img className="h-[8vh] md:h-[16vh] flex m-auto" src="https://res.cloudinary.com/dd6chx3xb/image/upload/v1702129467/a6ryc6gvv7mgq21idwno.png" alt="Logo" />
+      <img className="h-[8vh] md:h-[16vh] flex m-auto" src={logo} alt="Logo" />
       <h1 className="text-xl font-bold m-auto flex"> Farmer's Palm</h1>
     </Link>
     <div className='gap-[3vw] flex flex-col justify-center p-[3vw]'>

@@ -1,19 +1,20 @@
+import { lazy, useEffect, useState } from "react";
 import Home from "./components/Home";
 import Auth from "./components/Auth";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Agent from "./components/Agent";
 import Shop from "./components/Shop";
 import Body from "./components/Body";
 import Header from "./components/Header";
-import LogOut from "./components/LogOut";
 import Cart from "./components/Cart";
-import { useEffect, useState } from "react";
 import VeiwProduct from "./components/VeiwProduct";
 import Cookies from "js-cookie";
-import Footer from "./components/Footer";
-import CartSummary from "./components/CartSummary";
-import OrderSuccess from "./components/OrderSuccess";
 import MyOrders from "./components/MyOrders";
+import Footer from "./components/Footer";
+
+const Agent = lazy(()=>import('./components/Agent'));
+const LogOut = lazy(()=>import('./components/LogOut'));
+const CartSummary = lazy(()=>import('./components/CartSummary'));
+const OrderSuccess = lazy(()=>import('./components/OrderSuccess'));
 
 const App = () => {
   if(!Cookies.get('userInfo')){
@@ -28,9 +29,7 @@ const App = () => {
   const Router = createBrowserRouter([
     {
       path:"/",
-      element:<>
-        <Body />
-      </>,
+      element:<Body />,
       errorElement:
       <>
         <Header/>
@@ -45,7 +44,7 @@ const App = () => {
           {path:"/user",element:<Auth loginFor='agent'/>},
           {path:"/shop/:id",element:<VeiwProduct />},
           {path:"/Agent",element:<Agent />},
-          // {path:"/dealer",element:<Auth loginFor='dealer'/>},
+          {path:"/dealer",element:<Auth loginFor='dealer'/>},
           {path:"/login",element:<Auth loginFor='user'/>},
           {path:"/cart/cartSummary",element:<CartSummary />},
           {path:"/addProduct",element:<Agent />},
@@ -60,7 +59,7 @@ const App = () => {
     });
 },[data,Cookies.get('userInfo')])
 return (
-        <div className="h-full bg-[#0a0e28] select-none">
+        <div className="h-full bg-[#0a0f2b] select-none">
           <RouterProvider router={Router} />
         </div>
   )
