@@ -4,6 +4,8 @@ import { RiWifiOffLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import { ImCart } from "react-icons/im";
 import logo from "../images/logo.png";
+
+
 import Cookies from 'js-cookie';
 
 const Header = () => {
@@ -39,24 +41,21 @@ const Header = () => {
                     to="/cart" className="text-2xl ml-1 my-auto px-1">
                     <ImCart />
                     </Link>
-                    <CgMenuRight className="text-3xl ml-2" onClick={()=>{
-                      setisMenuOpen(!isMenuOpen);
-                    }}/>
+                    
+                    <CgMenuRight className="text-3xl ml-2" ref={menuRef} 
+                    onClick={()=>setisMenuOpen(!isMenuOpen)}/>
                 </div>
         </div>
         {isMenuOpen && 
         <div 
           className='fixed right-0 backdrop-blur-xl font-bold text-[3w] bg-[#debb20c0] cursor-pointer md:w-[20vw] w-[100vw] min-h-[10vh] pt-5 flex flex-col justify-center gap-7 z-50'
-          ref={menuRef}
+          ref={menuRef} 
           onClick={()=>{
           setisMenuOpen(!isMenuOpen)
           }}
           onMouseLeave={()=>
           setisMenuOpen(false)
           }
-          onMouseDown={(e)=>{
-            console.log(menuRef.current.contains(e.target))
-          }}
         >
         {
         !userData.accountTypeOnAuth 
