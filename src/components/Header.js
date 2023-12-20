@@ -10,10 +10,12 @@ import Cookies from 'js-cookie';
 
 const Header = () => {
   const menuRef = useRef(null);
+  const menuIconRef = useRef(null);
+
   const userData=({...JSON.parse(Cookies.get("userInfo"))});
   const [isMenuOpen, setisMenuOpen] = useState(false);
   const closeMenuOut = (e) => {
-    if (menuRef.current && !menuRef.current.contains(e.target)){
+    if (menuRef.current && !menuRef.current.contains(e.target) && !menuIconRef.current.contains(e.target) ){
       setisMenuOpen(false);
     }
   }
@@ -35,15 +37,16 @@ const Header = () => {
                     Farmer's Palm
                   </h1>
                 </Link>
-                <div className="flex justify-center mr-[2vw] my-auto">
+                <div className="flex justify-center mr-[2vw] my-auto" ref={menuIconRef}>
                     {!navigator.onLine && <RiWifiOffLine className="text-3xl"/>}
                     <Link 
-                    to="/cart" className="text-2xl ml-1 my-auto px-1">
+                    to="/cart" className="text-2xl ml-1 my-auto px-1 active:text-black"
+                    onClick={()=>setisMenuOpen(false)}>
                     <ImCart />
                     </Link>
-                    
-                    <CgMenuRight className="text-3xl ml-2" ref={menuRef} 
-                    onClick={()=>setisMenuOpen(!isMenuOpen)}/>
+                      <CgMenuRight 
+                      className="text-3xl ml-2 active:scale-95" 
+                      onClick={()=>setisMenuOpen(!isMenuOpen)}/>
                 </div>
         </div>
         {isMenuOpen && 
