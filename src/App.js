@@ -10,11 +10,11 @@ import VeiwProduct from "./components/VeiwProduct";
 import Cookies from "js-cookie";
 import MyOrders from "./components/MyOrders";
 import Footer from "./components/Footer";
+import CartSummary from "./components/CartSummary";
+import OrderSuccess from "./components/OrderSuccess";
+import LogOut from "./components/LogOut";
 
 const Agent = lazy(()=>import('./components/Agent'));
-const LogOut = lazy(()=>import('./components/LogOut'));
-const CartSummary = lazy(()=>import('./components/CartSummary'));
-const OrderSuccess = lazy(()=>import('./components/OrderSuccess'));
 
 const App = () => {
   if(!Cookies.get('userInfo')){
