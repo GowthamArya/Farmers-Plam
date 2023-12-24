@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <div className="md:flex h-[90vh] overflow-hidden">
         <div className="w-full h-1/2 md:w-1/2 md:h-full flex-col flex justify-evenly">
-            <h1 className="text-[7vw] md:text-[4vw] px-10 text-[#fad636fc] font-extrabold mt-6">
+            <h1 title="Farmers Palm app gowtham arya farmerspalmapp.onrender" className="text-[7vw] md:text-[4vw] px-10 text-[#fad636fc] font-extrabold mt-6">
                 FRESH FROM FARM TO YOUR PLATE.
             </h1>
             <div className="font-sans text-[2vh] md:text-[2vw] px-10 text-yellow-100 font-bold">
