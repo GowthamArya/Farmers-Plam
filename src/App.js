@@ -39,10 +39,10 @@ const App = () => {
       children:[
           {path:"/",element:<Home />},
           {path:"/cart",element:<Cart />},
-          {path:"/shop",element:<Shop />},
+          {path:"shop",element:<Shop />},
           {path:"/myorders",element:<MyOrders />},
           {path:"/user",element:<Auth loginFor='agent'/>},
-          {path:"/shop/:id",element:<VeiwProduct />},
+          {path:"shop/:id",element:<VeiwProduct />},
           {path:"/Agent",element:<Agent />},
           {path:"/dealer",element:<Auth loginFor='dealer'/>},
           {path:"/login",element:<Auth loginFor='user'/>},
